@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package city;
+
+service CityService {
+  rpc GetById(GetByIdRequest) returns (City);
+  rpc GetAll(EmptyRequest) returns (stream City);
+}
+
+message GetByIdRequest {
+    uint32 id = 1;
+}
+
+message EmptyRequest {}
+
+message City {
+    uint32 id = 1;
+    string name = 2;
+    string country = 3;
+    uint32 population = 4;
+}
